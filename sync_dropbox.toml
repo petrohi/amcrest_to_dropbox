@@ -1,8 +1,9 @@
 [dropbox]
 refresh_token = "<YOUR TOKEN>"
+folder = "/Monitoring Media"
 
 [cameras]
-base_dir = "/var/lib/sftp/sftp_amcrest"
+dir = "/var/lib/sftp/sftp_amcrest"
 
 [cameras.test]
 serial = "<YOUR SERIAL>"

@@ -45,15 +45,15 @@ HOUR_REGEX = re.compile('[0-9]{2}')
 MP4_REGEX = re.compile('.+\.mp4$')
 UNFINISHED_MP4_REGEX = re.compile('.+\.mp4_$')
 
-def scan(camera_name, base_dir):
-    date_dirs = os.listdir(base_dir)
+def scan(camera_name, camera_dir, dropbox_folder):
+    date_dirs = os.listdir(camera_dir)
     for date_dir in date_dirs:
         date_match = DATE_REGEX.match(date_dir)
         if date_match:
             year = date_match.group(1)
             month = date_match.group(2)
             day = date_match.group(3)
-            hours_dir = base_dir + '/' + date_dir + '/001/dav'
+            hours_dir = camera_dir + '/' + date_dir + '/001/dav'
             hour_dirs = os.listdir(hours_dir)
             for hour_dir in hour_dirs:
                 if HOUR_REGEX.match(hour_dir):                    
@@ -69,10 +69,10 @@ def scan(camera_name, base_dir):
                                     print(camera_name + ' concat file: ' + mp4)
                                     mp4_list_file.write('file \'' + mp4s_dir + '/' + mp4 + '\'\n')
 
-                        os.system('ffmpeg -safe 0 -f concat -i /tmp/ffmpeg_concat_list.txt -vcodec copy -acodec copy /tmp/ffmpeg_concat.mp4')
+                        os.system('ffmpeg -y -safe 0 -f concat -i /tmp/ffmpeg_concat_list.txt -vcodec copy -acodec copy /tmp/ffmpeg_concat.mp4')
                         os.remove('/tmp/ffmpeg_concat_list.txt')
 
-                        dropbox_path = '/' + camera_name + '/' + year + '/' + month + '/' + day + '/' + hour_dir + '.mp4'
+                        dropbox_path = dropbox_folder + '/' + camera_name + '/' + year + '/' + month + '/' + day + '/' + hour_dir + '.mp4'
                         print(camera_name + ' upload: ' + dropbox_path)
                         upload_to_dropbox('/tmp/ffmpeg_concat.mp4', dropbox_path)
                         os.remove('/tmp/ffmpeg_concat.mp4')
@@ -81,8 +81,9 @@ def scan(camera_name, base_dir):
                     else:
                         print(camera_name + ' unfinished: ' + mp4s_dir)
 
-base_dir = config['cameras']['base_dir']
+cameras_base_dir = config['cameras']['dir']
+dropbox_folder = config['dropbox']['folder']
 for camera, props in config['cameras'].items():
     if type(props) is dict:
         serial = props['serial']
-        scan(camera, base_dir + '/' + serial)
+        scan(camera, cameras_base_dir + '/' + serial, dropbox_folder)
