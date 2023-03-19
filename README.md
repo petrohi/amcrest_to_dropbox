@@ -2,11 +2,11 @@
 
 ## Setup
 
-### 1. Install Python, FFMPEG etc
+### 1. Install Python and FFMPEG
 ```
 sudo apt update
 sudo apt upgrade
-sudo apt install python3-pip ffmpeg unzip
+sudo apt install python3-pip ffmpeg
 ```
 ### 2. Setup `sftp` group, `sftp_amcrest` user, its password, and configure `sshd` server
 ```
