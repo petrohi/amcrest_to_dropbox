@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
 import dropbox
+import os
+
 from dropbox import DropboxOAuth2FlowNoRedirect
 
 DROPBOX_APP_KEY = os.environ['DROPBOX_APP_KEY']

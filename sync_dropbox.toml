@@ -2,7 +2,7 @@
 refresh_token = "<YOUR TOKEN>"
 
 [cameras]
-base_dir = "/var/lib/sftp"
+base_dir = "/var/lib/sftp/sftp_amcrest"
 
-[cameras.garage]
+[cameras.test]
 serial = "<YOUR SERIAL>"
