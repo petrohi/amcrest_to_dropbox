@@ -1,0 +1,8 @@
+[dropbox]
+refresh_token = "<YOUR TOKEN>"
+
+[cameras]
+base_dir = "/var/lib/sftp"
+
+[cameras.garage]
+serial = "<YOUR SERIAL>"
