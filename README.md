@@ -59,6 +59,7 @@ rm -r ${TAG}.tar.gz amcrest_to_dropbox-${TAG}/
 pip install -r requirements.txt
 ```
 5.3 Authenticate with Dropbox. This command will print Dropbox user email and refresh token.
+(Create Dropbox App and get the App Key in [App Console](https://www.dropbox.com/developers/apps))
 ```
 DROPBOX_APP_KEY=<YOU APP KEY> ./auth_dropbox.py
 ```
@@ -77,5 +78,5 @@ crontab -e
 ```
 Paste folowing line at the end of edited file
 ```
-15 * * * * DROPBOX_APP_KEY=<YOU APP KEY> /var/lib/sftp/sftp_amcrest/sync_dropbox.py /var/lib/sftp/sftp_amcrest/sync_dropbox.toml >> /var/lib/sftp/sftp_amcrest/sync_dropbox.log
+15 * * * * DROPBOX_APP_KEY=<YOU APP KEY> ~/sync_dropbox.py ~/sync_dropbox.toml >> ~/sync_dropbox.log 2>&1
 ```
