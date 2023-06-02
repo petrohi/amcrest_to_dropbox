@@ -35,7 +35,7 @@ sudo systemctl restart ssh
 3.5 Take note of camera serial number (S/N)
 ![information_version](/doc/information_version.png)
 ### 4. Create Dropbox app
-4.1 Create new Dropbox App
+4.1 Create new Dropbox App in [App Console](https://www.dropbox.com/developers/apps)
 ![dbx_create_app](/doc/dbx_create_app.png)
 4.2 Set App permissions for `files.content.write`
 ![dbx_set_app_permissions](/doc/dbx_set_app_permissions.png)
@@ -59,7 +59,6 @@ rm -r ${TAG}.tar.gz amcrest_to_dropbox-${TAG}/
 pip install -r requirements.txt
 ```
 5.3 Authenticate with Dropbox. This command will print Dropbox user email and refresh token.
-(Create Dropbox App and get the App Key in [App Console](https://www.dropbox.com/developers/apps))
 ```
 DROPBOX_APP_KEY=<YOU APP KEY> ./auth_dropbox.py
 ```
