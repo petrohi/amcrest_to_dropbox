@@ -60,7 +60,7 @@ pip install -r requirements.txt
 ```
 5.3 Authenticate with Dropbox. This command will print Dropbox user email and refresh token.
 ```
-DROPBOX_APP_KEY=<YOU APP KEY> ./auth_dropbox.py
+DROPBOX_APP_KEY=<YOU APP KEY> ~/auth_dropbox.py
 ```
 5.4 Edit `refresh_token` and camera(s) `serial` in `sync_dropbox.toml`
 ```
@@ -68,7 +68,7 @@ nano sync_dropbox.toml
 ```
 5.5 Test sync with Dropbox
 ```
-DROPBOX_APP_KEY=<YOU APP KEY> /var/lib/sftp/sftp_amcrest/sync_dropbox.py /var/lib/sftp/sftp_amcrest/sync_dropbox.toml
+DROPBOX_APP_KEY=<YOU APP KEY> ~/sync_dropbox.py ~/sync_dropbox.toml
 ```
 
 5.6 Setup cron job
