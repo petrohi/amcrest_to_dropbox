@@ -49,7 +49,7 @@ cd
 ```
 5.2 Install latest `amcrest_to_dropbox` release
 ```
-export TAG=0.0.3
+export TAG=0.0.4
 wget https://github.com/petrohi/amcrest_to_dropbox/archive/refs/tags/${TAG}.tar.gz
 tar xf ${TAG}.tar.gz
 mv amcrest_to_dropbox-${TAG}/*.py .
