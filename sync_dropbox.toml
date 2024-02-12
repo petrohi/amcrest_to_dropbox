@@ -1,6 +1,5 @@
-[dropbox]
-refresh_token = "<YOUR TOKEN>"
-folder = "/Monitoring Media"
+[rclone]
+remote = "media"
 
 [cameras]
 dir = "/var/lib/sftp/sftp_amcrest"
